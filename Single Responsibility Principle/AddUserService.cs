@@ -5,16 +5,19 @@ namespace Single_Responsibility_Principle
 {
     public class AddUserService
     {
+        private readonly UserRepository _userRepository = new();
+        private readonly SendEmailService _sendEmailService = new();
+
+        public AddUserService(UserRepository userRepository, SendEmailService sendEmailService)
+        {
+            _userRepository = userRepository;
+            _sendEmailService = sendEmailService;
+        }
+
         public void AddUser()
         {
-            using var connection = new SqlConnection("connectionString");
-
-            var command = new SqlCommand("INSERT INTO [...]"); // add user to db
-            command.ExecuteNonQuery();
-
-            // sending email
-            var smtpClient = new SmtpClient();
-            smtpClient.Send(new MailMessage());
+            _userRepository.RegisterUser();
+            _sendEmailService.SendRegistrationEmail();
         }
     }
 }
