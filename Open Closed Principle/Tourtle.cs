@@ -1,10 +1,10 @@
 ﻿namespace Open_Closed_Principle
 {
-    public class Cat : Pet
+    public class Tourtle : Pet
     {
         public override void Say()
         {
-            Console.WriteLine("Miau miau");
+            Console.WriteLine("...");
         }
     }
 }

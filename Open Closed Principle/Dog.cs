@@ -1,8 +1,9 @@
 ﻿namespace Open_Closed_Principle
 {
-    public class Dog
+    public class Dog : Pet
     {
-        public void Say()
+
+        public override void Say()
         {
             Console.WriteLine("Hau Hau");
         }
